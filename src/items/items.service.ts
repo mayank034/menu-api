@@ -55,7 +55,7 @@ export const update = async (
   id: number,
   itemUpdate: BaseItem
 ): Promise<Item | null> => {
-  const item = await find(id);
+  const item = await find(id);  //await can be put in front of any async promise-based function to pause your code on that line until the promise fulfills, then return the resulting value. You can use await when calling any function that returns a Promise, including web API functions.
 
   if (!item) {
     return null;
@@ -74,5 +74,5 @@ export const remove = async (id: number): Promise<null | void> => {
     return null;
   }
 
-  delete items[id];
+  delete items[id];   //The JavaScript delete operator removes a property from an object
 };
