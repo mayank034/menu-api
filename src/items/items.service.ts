@@ -28,7 +28,7 @@
       id: 3,
       name: "Tea",
       price: 199,
-      description: "Informative",
+      description: "Energizing",
       image: "https://cdn.auth0.com/blog/whatabyte/tea-sm.png"
     }
   };
