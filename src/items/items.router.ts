@@ -4,6 +4,8 @@
  import express, { Request, Response } from "express";  // importing the express package and two of its internal classes, Request and Response, which can be used to type the callback functions of your Express controllers.
  import * as ItemService from "./items.service";        // ItemService is an object containing various methods from items.service file.
  import { BaseItem, Item } from "./item.interface";     // BaseItem and Item are 2 interfaces ,which are necessary to type the return values from the ItemService functions
+ 
+ import { checkJwt } from "../middleware/authz.middleware";
 
 /**
  * Router Definition
@@ -43,6 +45,10 @@ itemsRouter.get("/:id", async (req: Request, res: Response) => {
       res.status(500).send(e.message);
     }
   });
+
+// ✨ New! Mount authorization middleware
+
+itemsRouter.use(checkJwt); // 👈 👀
 
 // POST items
 
